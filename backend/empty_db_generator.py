@@ -8,7 +8,7 @@ first_day = date(YEAR, 1, 1)
 last_day = date(YEAR, 12, 31)
 
 current_day = first_day
-
+idx = 0
 dates = []
 
 while current_day <= last_day:
@@ -21,9 +21,10 @@ while current_day <= last_day:
         day["date"] = current_day.isoformat()
         slots = []
         while start <= end-1.0:
-            slot = {"start": start, "end": start+1.0, "booked_by": ''}
+            slot = {"id": idx, "start": start, "end": start+1.0, "booked_by": ''}
             slots.append(slot)
             start += 1.0 
+            idx += 1
         day["slots"] = slots 
         dates.append(day)
         
