@@ -1,9 +1,10 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json 
 from urllib.parse import urlparse
+import os
 
-HOST = "localhost"
-PORT = 3333
+HOST = os.getenv("HOST","localhost")
+PORT = int(os.getenv("PORT","3333"))
 
 class BookingSystem(BaseHTTPRequestHandler):
     def send_json(self, data: dict, status=200) -> None:
